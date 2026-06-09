@@ -7,4 +7,4 @@ global using ProductManagement.Infrastructure.Data.Settings;
 global using ProductManagement.Domain.Audits.AuditingContracts;
 global using ProductManagement.Domain.Entities;
 global using ProductManagement.Infrastructure.Repositories.Contracts;
-global using ProductManagement.Infrastructure.DependencyInjection;
+global using ProductManagement.Infrastructure.Repositories.Implementations;

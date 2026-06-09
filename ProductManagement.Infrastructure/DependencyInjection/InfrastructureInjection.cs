@@ -18,5 +18,15 @@ public static class InfrastructureInjection
 
             services.AddSingleton<IMongoDatabase>(database);
         }
+
+        /// <summary>
+        /// DI for Repositories
+        /// </summary>
+        public void AddInfrastructureServices()
+        {
+            services.AddScoped(typeof(IGenericRepository<>), typeof(IGenericRepository<>));
+
+            services.AddScoped<IProductRepository, ProductRepository>();
+        }
     }
 }

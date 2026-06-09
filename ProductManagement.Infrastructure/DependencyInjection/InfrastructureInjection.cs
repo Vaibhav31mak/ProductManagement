@@ -2,8 +2,13 @@
 
 public static class InfrastructureInjection
 {
+    // Extension member
     extension(IServiceCollection services)
     {
+        /// <summary>
+        /// Configuring database with MongoDB Driver.
+        /// </summary>
+        /// <param name="configuration"></param>
         public void ConfigureDatabase(IConfiguration configuration)
         {
             var productManagementDbSettings = configuration.GetSection("ProductManagementDatabase")

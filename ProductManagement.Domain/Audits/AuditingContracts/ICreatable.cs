@@ -6,5 +6,5 @@
 public interface ICreatable
 {
     // init as it is immutable.
-    DateTimeOffset CreatedAt { get; init; }
+    DateTimeOffset CreatedAt { get; set; }
 }

@@ -6,5 +6,5 @@
 public abstract class BaseEntity : AuditableEntity, ISoftDeletable
 {
     public DateTimeOffset? DeletedAt { get; set; }
-    public bool IsDeleted { get; set; }
+    public bool IsDeleted { get; set; } = false;
 }

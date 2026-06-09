@@ -1,8 +1,9 @@
 ﻿namespace ProductManagement.Infrastructure.Repositories.Implementations;
 
 /// <summary>
-/// Product Repository for Product Data Access.
+/// Product Repository for Product Data Access. Using C# 12 Primary Constructor.
 /// </summary>
-public class ProductRepository(IMongoDatabase db) : GenericReposiroty<Product>(db), IProductRepository
+public class ProductRepository(ProductManagementContext context) 
+    : GenericReposiroty<Product>(context), IProductRepository
 {
 }

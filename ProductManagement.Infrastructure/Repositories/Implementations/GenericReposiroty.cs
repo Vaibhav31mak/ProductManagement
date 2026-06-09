@@ -4,11 +4,11 @@
 /// Generic Repository Implementation where T should extend IEntity to be an entity
 /// </summary>
 /// <typeparam name="T"></typeparam>
-public class GenericReposiroty<T>(IMongoDatabase db) 
+public class GenericReposiroty<T>(ProductManagementContext context) 
     : IGenericRepository<T> where T : class, IEntity
 {
     // Used reflection for collection name.
-    private readonly IMongoCollection<T> _collection = db.GetCollection<T>($"{typeof(T).Name}s");
+    private readonly IMongoCollection<T> _collection = context.Datrabase.GetCollection<T>($"{typeof(T).Name}s");
 
     /// <summary>
     /// Adding entity

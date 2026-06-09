@@ -1,6 +1,5 @@
-﻿namespace ProductManagement.Api
-{
-    public class GlobalUsings
-    {
-    }
-}
+﻿global using ProductManagement.Api.ApiExtensions;
+global using ProductManagement.Api.Exceptions;
+
+global using Microsoft.AspNetCore.Diagnostics;
+global using Microsoft.AspNetCore.Mvc;

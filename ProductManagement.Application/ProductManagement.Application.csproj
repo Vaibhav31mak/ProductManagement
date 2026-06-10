@@ -13,9 +13,11 @@
 
   <ItemGroup>
     <Folder Include="Features\Products\Queries\" />
-    <Folder Include="DTOs\" />
-    <Folder Include="Mappers\" />
-    <Folder Include="ResultPattern\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="16.1.1" />
+    <PackageReference Include="MediatR" Version="14.1.0" />
   </ItemGroup>
 
 </Project>

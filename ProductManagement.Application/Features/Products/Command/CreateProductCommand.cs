@@ -1,5 +1,8 @@
 ﻿namespace ProductManagement.Application.Features.Products.Command;
 
-public class CreateProductCommand
-{
-}
+/// <summary>
+/// CreateProduct command which is a record for immutability. Returns Id.
+/// </summary>
+public record CreateProductCommand(
+    string Name, string? Description, decimal Price, int Quantity, string? Category)
+    : IRequest<Result<ProductResponse>>;

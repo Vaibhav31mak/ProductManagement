@@ -53,5 +53,14 @@ public class ProductEndpoints(IMediator mediator) : BaseEndpoint
         return Ok(productResponseResult.Value);
     }
 
-
+    [HttpPut]
+    public async Task<IActionResult> UpdataProduct(UpdateProductCommand updateProductCommand)
+    {
+        var productResponseResult = await mediator.Send(updateProductCommand);
+        if (!productResponseResult.IsSuccess)
+        {
+            return BadRequest(productResponseResult.ErrorMessage);
+        }
+        return Ok(productResponseResult.Value);
+    }
 }

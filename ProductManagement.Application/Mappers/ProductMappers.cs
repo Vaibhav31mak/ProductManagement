@@ -9,5 +9,6 @@ public class ProductMappers : Profile
     {
         CreateMap<CreateProductCommand, Product>();
         CreateMap<Product, ProductResponse>();
+        CreateMap<UpdateProductCommand, Product>();
     }
 }

@@ -1,6 +1,4 @@
-﻿using ProductManagement.Application.Features.Products.Queries;
-
-namespace ProductManagement.Api.Endpoints;
+﻿namespace ProductManagement.Api.Endpoints;
 
 public class ProductEndpoints(IMediator mediator) : BaseEndpoint
 {
@@ -28,9 +26,9 @@ public class ProductEndpoints(IMediator mediator) : BaseEndpoint
     /// <param name="cancellationToken"></param>
     /// <returns></returns>
     [HttpGet]
-    public async Task<IActionResult> GetAll(GetAllProductsQuery getAllProductsQuery, CancellationToken cancellationToken)
+    public async Task<IActionResult> GetAll(CancellationToken cancellationToken)
     {
-        var getAllProductsResult = await mediator.Send(getAllProductsQuery, cancellationToken);
+        var getAllProductsResult = await mediator.Send(new GetAllProductsQuery(), cancellationToken);
         if (!getAllProductsResult.IsSuccess)
         {
             return BadRequest(getAllProductsResult.ErrorMessage);
@@ -38,5 +36,22 @@ public class ProductEndpoints(IMediator mediator) : BaseEndpoint
         return Ok(getAllProductsResult.Value);
     }
 
-    
+    /// <summary>
+    /// Get by Id product
+    /// </summary>
+    /// <param name="id"></param>
+    /// <param name="cancellationToken"></param>
+    /// <returns></returns>
+    [HttpGet("{id:length(24)}")]
+    public async Task<IActionResult> GetById(string id, CancellationToken cancellationToken)
+    {
+        var productResponseResult = await mediator.Send(new GetByIdProductQuery(id), cancellationToken);
+        if (!productResponseResult.IsSuccess)
+        {
+            return NotFound(productResponseResult.ErrorMessage);
+        }
+        return Ok(productResponseResult.Value);
+    }
+
+
 }

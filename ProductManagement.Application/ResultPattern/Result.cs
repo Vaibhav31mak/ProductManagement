@@ -1,7 +1,7 @@
 ﻿namespace ProductManagement.Application.ResultPattern;
 
 /// <summary>
-/// Using singleton pattern for result pattern to handle logical errors.
+/// Using result pattern to handle logical errors.
 /// </summary>
 /// <typeparam name="T"></typeparam>
 public class Result<T>

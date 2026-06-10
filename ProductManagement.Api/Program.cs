@@ -6,6 +6,7 @@ builder.Services.AddGlobalException();
 
 builder.Services.ConfigureDatabase(builder.Configuration);
 builder.Services.AddInfrastructureServices();
+builder.Services.AddApplicationServices();
 
 var app = builder.Build();
 

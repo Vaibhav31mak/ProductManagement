@@ -19,7 +19,7 @@ public static class InfrastructureInjection
         /// </summary>
         public void AddInfrastructureServices()
         {
-            services.AddScoped(typeof(IGenericRepository<>), typeof(IGenericRepository<>));
+            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericReposiroty<>));
 
             services.AddScoped<IProductRepository, ProductRepository>();
         }

@@ -8,6 +8,6 @@ public abstract class AuditableEntity : IEntity, ICreatable, IUpdatable
     [BsonId]
     [BsonRepresentation(BsonType.ObjectId)]
     public required string Id { get; init; }
-    public DateTimeOffset CreatedAt { get; set; }
+    public DateTimeOffset? CreatedAt { get; set; }
     public DateTimeOffset? UpdatedAt { get; set; }
 }

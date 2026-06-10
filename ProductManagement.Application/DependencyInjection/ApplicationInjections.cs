@@ -9,7 +9,9 @@ public static class ApplicationInjections
     {
         public void AddApplicationServices()
         {
-            
+            services.AddValidatorsFromAssemblyContaining<CreateProductValidators>();
+            services.AddMediatR(config => config.RegisterServicesFromAssembly(typeof(CreateProductHandler).Assembly));
+            services.AddAutoMapper(cfg => cfg.AddProfile<ProductMappers>());
         }
     }
 }

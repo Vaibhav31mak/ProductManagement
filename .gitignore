@@ -19,9 +19,6 @@ TestResults/
 # =========================================
 # Security & Configuration
 # =========================================
-# NEVER commit development or local appsettings
-appsettings.Development.json
-appsettings.Local.json
 # Ignore local environment variables
 .env
 .env.local

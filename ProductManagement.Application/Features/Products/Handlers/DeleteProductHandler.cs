@@ -5,7 +5,7 @@
 /// </summary>
 /// <param name="productRepository"></param>
 /// <param name="mapper"></param>
-public class DeleteProductHandler(IProductRepository productRepository, IMapper mapper) : IRequestHandler<DeleteProductCommand, bool>
+public class DeleteProductHandler(IProductRepository productRepository) : IRequestHandler<DeleteProductCommand, bool>
 {
     public async Task<bool> Handle(DeleteProductCommand request, CancellationToken cancellationToken)
     {

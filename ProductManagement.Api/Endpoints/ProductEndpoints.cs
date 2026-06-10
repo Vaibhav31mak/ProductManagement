@@ -53,6 +53,11 @@ public class ProductEndpoints(IMediator mediator) : BaseEndpoint
         return Ok(productResponseResult.Value);
     }
 
+    /// <summary>
+    /// Update request
+    /// </summary>
+    /// <param name="updateProductCommand"></param>
+    /// <returns></returns>
     [HttpPut]
     public async Task<IActionResult> UpdataProduct(UpdateProductCommand updateProductCommand)
     {
@@ -62,5 +67,21 @@ public class ProductEndpoints(IMediator mediator) : BaseEndpoint
             return BadRequest(productResponseResult.ErrorMessage);
         }
         return Ok(productResponseResult.Value);
+    }
+
+    /// <summary>
+    /// Delete api
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
+    [HttpDelete("{id:length(24)}")]
+    public async Task<IActionResult> DeleteProduct(string id)
+    {
+        bool isProductDeleted = await mediator.Send(new DeleteProductCommand(id));
+        if (!isProductDeleted)
+        {
+            return NotFound("product with specified id not found");
+        }
+        return Ok("product is deleted");
     }
 }

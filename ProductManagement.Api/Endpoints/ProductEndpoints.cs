@@ -1,4 +1,6 @@
-﻿namespace ProductManagement.Api.Endpoints;
+﻿using ProductManagement.Application.Features.Products.Queries;
+
+namespace ProductManagement.Api.Endpoints;
 
 public class ProductEndpoints(IMediator mediator) : BaseEndpoint
 {
@@ -11,11 +13,30 @@ public class ProductEndpoints(IMediator mediator) : BaseEndpoint
     [HttpPost]
     public async Task<IActionResult> CreateProduct(CreateProductCommand productCommand, CancellationToken cancellationToken = default)
     {
-        var result = await mediator.Send(productCommand, cancellationToken);
-        if (!result.IsSuccess)
+        var createProductResult = await mediator.Send(productCommand, cancellationToken);
+        if (!createProductResult.IsSuccess)
         {
-            return BadRequest(result.ErrorMessage);
+            return BadRequest(createProductResult.ErrorMessage);
         }
-        return Ok(result.Value);
+        return Ok(createProductResult.Value);
     }
+
+    /// <summary>
+    /// Get all products response
+    /// </summary>
+    /// <param name="getAllProductsQuery"></param>
+    /// <param name="cancellationToken"></param>
+    /// <returns></returns>
+    [HttpGet]
+    public async Task<IActionResult> GetAll(GetAllProductsQuery getAllProductsQuery, CancellationToken cancellationToken)
+    {
+        var getAllProductsResult = await mediator.Send(getAllProductsQuery, cancellationToken);
+        if (!getAllProductsResult.IsSuccess)
+        {
+            return BadRequest(getAllProductsResult.ErrorMessage);
+        }
+        return Ok(getAllProductsResult.Value);
+    }
+
+    
 }

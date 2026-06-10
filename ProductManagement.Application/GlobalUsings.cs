@@ -11,3 +11,4 @@ global using ProductManagement.Application.ResultPattern;
 global using ProductManagement.Application.Features.Products.Validators;
 global using ProductManagement.Application.Features.Products.Handlers;
 global using ProductManagement.Application.Mappers;
+global using ProductManagement.Application.Features.Products.Queries;
